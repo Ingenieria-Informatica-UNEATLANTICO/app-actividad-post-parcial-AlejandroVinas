@@ -1,0 +1,70 @@
+@startuml
+class CentroSalud {
+
+}
+
+class Paciente {
+    
+}
+
+class ProfMedico {
+   
+}
+
+class Especialidad {
+    
+}
+
+class Cita {
+    
+}
+
+class Diagnostico {
+   
+}
+
+class Tratamiento {
+   
+}
+
+class HistClinico {
+    
+}
+
+class Urgencias {
+    
+}
+
+class Sala {
+   
+}
+
+class Administrativo {
+    
+}
+
+CentroSalud --> "1..*" ProfMedico : formado por
+CentroSalud --> "1..*" Sala : tiene
+CentroSalud --> "1..*" Especialidad : incluye
+
+Paciente --> "1" HistClinico : tiene
+Paciente --> "0..*" Cita : solicita
+Paciente --> "0..*" Diagnostico : recibe
+Paciente --> "0..*" Tratamiento : sigue
+Paciente --> Sala : ingresa en
+
+ProfMedico --> "1..*" Especialidad : pertenece a
+ProfMedico --> "0..*" Cita : gestiona
+ProfMedico --> "0..*" Diagnostico : realiza
+ProfMedico --> Tratamiento : asigna
+ProfMedico --> HistClinico : consulta
+
+Tratamiento --> Diagnostico : se basa en
+HistClinico --> "0..*" Diagnostico : incluye
+
+Administrativo --> "0..*" Cita : gestiona
+
+Urgencias --> Paciente : atiende
+Urgencias --> ProfMedico : colabora
+Urgencias --> Diagnostico : genera
+@enduml

@@ -1,0 +1,87 @@
+@startuml
+entity "Centro de Salud" as CentroSalud {
+    
+}
+
+entity "Paciente" as Paciente {
+    
+}
+
+entity "Prof. Médico" as ProfMedico {
+    
+}
+
+entity "Especialidad" as Especialidad {
+   
+}
+
+entity "Hist. Clínico" as HistClinico {
+    
+}
+
+entity "Diagnóstico" as Diagnostico {
+    
+}
+
+entity "Tratamiento" as Tratamiento {
+    
+}
+
+entity "Cita" as Cita {
+    
+}
+
+entity "Urgencias" as Urgencias {
+   
+}
+
+entity "Ingreso" as Ingreso {
+   
+}
+
+entity "Sala" as Sala {
+    
+}
+
+entity "Recurso Médico" as RecursoMedico {
+    
+}
+
+entity "Consulta" as Consulta {
+    
+}
+
+CentroSalud --> "1..*" ProfMedico : formado por
+CentroSalud --> "1..*" Sala : tiene
+CentroSalud --> "1..*" Especialidad : incluye
+CentroSalud --> "1..*" RecursoMedico : administra
+
+Paciente --> "1" HistClinico : tiene
+Paciente --> "0..*" Cita : solicita
+Paciente --> "0..*" Diagnostico : recibe
+Paciente --> "0..*" Tratamiento : sigue
+Paciente --> "0..*" Ingreso : tiene
+Paciente --> "0..*" Consulta : realiza
+
+ProfMedico --> "1..*" Especialidad : pertenece a
+ProfMedico --> "0..*" Cita : gestiona
+ProfMedico --> "0..*" Diagnostico : realiza
+ProfMedico --> Tratamiento : asigna
+ProfMedico --> HistClinico : consulta
+ProfMedico --> Consulta : lleva a cabo
+
+Tratamiento --> Diagnostico : se basa en
+Tratamiento --> "0..*" RecursoMedico : utiliza
+HistClinico --> "0..*" Diagnostico : incluye
+
+Cita --> Diagnostico : puede derivar a
+Cita --> Tratamiento : puede derivar a
+Urgencias --> Diagnostico : genera
+Urgencias --> Tratamiento : administra
+Urgencias --> Sala : asigna
+Urgencias --> Ingreso : puede llevar a
+
+Ingreso --> Sala : se realiza en
+Ingreso --> Tratamiento : puede requerir
+Sala --> RecursoMedico : contiene
+@enduml

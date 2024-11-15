@@ -1,0 +1,9 @@
+@startuml
+[*] --> Solicitada
+Solicitada --> Confirmada
+Confirmada --> Cancelada
+Confirmada --> En_proceso
+En_proceso --> Finalizada
+Finalizada --> [*]
+Cancelada --> [*]
+@enduml

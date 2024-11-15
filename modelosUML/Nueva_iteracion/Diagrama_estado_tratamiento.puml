@@ -1,0 +1,12 @@
+@startuml
+[*] --> Asignado
+Asignado --> En_progreso
+En_progreso --> Suspendido : Complicaciones
+En_progreso --> Modificado : Ajustes necesarios
+En_progreso --> Finalizado : Concluido con éxito
+Modificado --> En_progreso
+Suspendido --> En_progreso : Reanudado
+Suspendido --> Cancelado : Decisión médica
+Finalizado --> [*]
+Cancelado --> [*]
+@enduml

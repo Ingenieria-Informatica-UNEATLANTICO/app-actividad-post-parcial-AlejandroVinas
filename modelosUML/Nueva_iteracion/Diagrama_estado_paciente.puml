@@ -1,0 +1,10 @@
+@startuml
+[*] --> Registrado
+Registrado --> En_espera
+En_espera --> En_tratamiento
+En_tratamiento --> Recuperado
+En_tratamiento --> Fallecido
+Recuperado --> Alta
+Alta --> [*]
+Fallecido --> [*]
+@enduml
