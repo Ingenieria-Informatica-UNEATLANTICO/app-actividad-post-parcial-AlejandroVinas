@@ -1,0 +1,15 @@
+@startuml
+[*] --> Disponible
+Disponible --> Atendiendo_Paciente : Cita programada
+Disponible --> En_guardia : Turno activo
+Atendiendo_Paciente --> Documentando : Registrar consulta
+Atendiendo_Paciente --> En_emergencia : Paciente crítico
+En_emergencia --> Documentando : Resolución del caso
+Documentando --> Disponible : Finaliza documentación
+En_guardia --> Atendiendo_Paciente : Llamada médica
+En_guardia --> En_descanso : Pausa
+En_descanso --> En_guardia : Fin del descanso
+Atendiendo_Paciente --> En_guardia : Cambio de turno
+[*] --> Ausente : No disponible
+Ausente --> Disponible : Regreso al turno
+@enduml

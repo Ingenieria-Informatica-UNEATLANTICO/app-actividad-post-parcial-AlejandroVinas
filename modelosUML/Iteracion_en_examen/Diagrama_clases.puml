@@ -1,0 +1,31 @@
+@startuml
+class Profmed{}
+class Paciente{}
+class Tratamiento{}
+class HistClinico{}
+class CentroSalud{}
+class ProtocolosMedicos{}
+class Urgencias{}
+
+CentroSalud --> ProtocolosMedicos: contiene
+CentroSalud --> Urgencias: tiene
+CentroSalud --> Profmed: formado por 
+CentroSalud --> HistClinico: contiene
+
+Urgencias --> ProtocolosMedicos: sigue
+Urgencias --> Profmed: formado por 
+
+Profmed --> ProtocolosMedicos: debe seguir
+Profmed --> Tratamiento: asigna
+Profmed --> HistClinico: consulta
+Profmed --> Paciente: atiende
+
+Tratamiento --> HistClinico: forma
+
+HistClinico --> paciente: tiene
+
+Paciente --> Tratamiento: sigue
+Paciente --> CentroSalud: acude
+Paciente --> Urgencias: acude
+
+@enduml

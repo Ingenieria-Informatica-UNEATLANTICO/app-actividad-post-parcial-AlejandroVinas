@@ -1,0 +1,19 @@
+@startuml
+
+[*]--> Alta
+Alta --> Enfermo
+Enfermo --> Alta
+Alta --> Citado
+Alta --> [*]
+
+[*] -->Enfermo
+Enfermo --> No_citado
+Enfermo --> Citado
+Citado --> Citado
+Citado --> No_citado
+Citado --> En_espera
+En_espera --> En_tratamiento
+En_tratamiento --> Alta
+En_tratamiento --> [*]
+
+@enduml
