@@ -1,0 +1,9 @@
+@startuml
+[*] --> Asignado
+Asignado --> En_proceso
+En_proceso --> No_asignado
+En_proceso --> Finalizado
+
+[*] --> No_asignado
+No_asignado --> [*]
+@enduml

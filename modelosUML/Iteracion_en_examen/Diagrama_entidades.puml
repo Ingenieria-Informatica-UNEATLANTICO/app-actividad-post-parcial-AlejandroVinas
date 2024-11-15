@@ -1,0 +1,25 @@
+@startuml
+object CentroDeSalud
+object Paciente
+object HistClinica
+object Tratamiento
+object ProfMedico
+object Urgencias
+object ProtMedico
+
+CentroDeSalud --> ProtMedico: tiene
+CentroDeSalud --> Paciente: cita
+Paciente --> CentroDeSalud: acude
+Paciente --> Urgencias: acude
+Paciente --> HistClinica: tiene
+Paciente --> Tratamiento: sigue
+Tratamiento --> HistClinica: forma
+Urgencias --> CentroDeSalud: englobada
+Urgencias --> ProtMedico: sigue
+ProfMedico -->CentroDeSalud: forma
+ProfMedico --> ProtMedico: debe seguir
+ProfMedico --> Tratamiento: asigna
+ProfMedico --> HistClinica: consulta
+
+
+@enduml

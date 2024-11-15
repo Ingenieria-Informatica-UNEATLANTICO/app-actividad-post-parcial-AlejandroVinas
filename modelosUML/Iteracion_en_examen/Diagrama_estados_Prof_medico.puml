@@ -1,0 +1,15 @@
+@startuml
+[*] --> Trabajando
+Trabajando --> Guardia
+Guardia --> Guardia
+Trabajando --> En_cita
+En_cita --> En_cita
+Guardia --> En_cita
+En_cita --> Guardia
+Guardia --> No_trabajando
+En_cita --> No_trabajando
+
+
+[*] --> No_trabajando
+No_trabajando --> [*]
+@enduml
